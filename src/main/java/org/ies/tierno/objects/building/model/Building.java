@@ -23,6 +23,15 @@ public class Building {
         return null;
     }
 
+    public Integer countApartmentOwners(int floor, String door) {
+        var apartment = findApartment(floor, door);
+        if (apartment != null) {
+            return apartment.getOwners().length;
+        } else {
+            return null;
+        }
+    }
+
     public void showInfo() {
         System.out.println("Edificio " + address + ", " + city);
         for (var apartment : apartments) {
