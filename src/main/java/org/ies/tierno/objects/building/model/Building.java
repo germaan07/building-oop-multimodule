@@ -36,6 +36,7 @@ public class Building {
         for (var apartment : apartments) {
             if (apartment.getFloor() == floor) {
                 apartment.showInfo();
+                System.out.println();
             }
         }
     }
