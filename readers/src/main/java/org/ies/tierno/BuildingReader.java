@@ -1,7 +1,6 @@
-package org.ies.tierno.objects.building.readers;
+package org.ies.tierno;
 
-import org.ies.tierno.objects.building.model.Apartment;
-import org.ies.tierno.objects.building.model.Building;
+
 
 import java.util.Scanner;
 

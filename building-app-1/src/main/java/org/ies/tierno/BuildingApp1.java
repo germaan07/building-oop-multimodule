@@ -1,6 +1,4 @@
-package org.ies.tierno.objects.building.app;
-
-import org.ies.tierno.objects.building.readers.BuildingReader;
+package org.ies.tierno;
 
 import java.util.Scanner;
 
@@ -14,7 +12,7 @@ public class BuildingApp1 {
     }
 
     public void run() {
-        var building = buildingReader.read();
+        Building building = buildingReader.read();
 
         System.out.println("Planta:");
         int floor = scanner.nextInt();

@@ -1,6 +1,5 @@
-package org.ies.tierno.objects.building.readers;
+package org.ies.tierno;
 
-import org.ies.tierno.objects.building.model.Owner;
 
 import java.util.Scanner;
 
