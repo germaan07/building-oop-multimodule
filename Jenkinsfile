@@ -7,7 +7,7 @@ pipeline {
     }
 
     environment {
-        APP_NAME   = 'building-oop-multimodulee' // cambia este nombre en cada proyecto
+        APP_NAME   = 'building-oop-multimodule' // cambia este nombre en cada proyecto
         MAVEN_OPTS = '-Xmx1024m -XX:MaxMetaspaceSize=512m'
     }
 
