@@ -1,5 +1,6 @@
 package org.ies.tierno;
 
+import org.ies.tierno.exceptions.ApartmentNotFoundException;
 import org.ies.tierno.model.Building;
 
 import java.util.Scanner;
@@ -13,7 +14,7 @@ public class BuildingApp1 {
         this.buildingReader = buildingReader;
     }
 
-    public void run() {
+    public void run() throws ApartmentNotFoundException {
         Building building = buildingReader.read();
 
         System.out.println("Planta:");
@@ -23,12 +24,7 @@ public class BuildingApp1 {
         System.out.println("Puerta:");
         String door = scanner.nextLine();
 
-        var apartment = building.findApartment(floor, door);
-        if (apartment.isEmpty()) {
-            System.out.println("No se ha encontrado el apartamento");
-        } else {
-            apartment.get().showInfo();
-        }
+        building.findApartment(floor, door).showInfo();
 
         building.showFloorApartments(2);
     }
