@@ -1,5 +1,7 @@
 package org.ies.tierno;
 
+import org.ies.tierno.model.Owner;
+
 import java.util.Scanner;
 
 public class OwnerReader {

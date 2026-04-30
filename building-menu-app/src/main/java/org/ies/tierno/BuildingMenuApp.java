@@ -1,5 +1,9 @@
 package org.ies.tierno;
 
+import org.ies.tierno.exceptions.ApartmentNotFoundException;
+import org.ies.tierno.model.Building;
+import org.ies.tierno.model.Owner;
+
 import java.util.Scanner; //
 
 public class BuildingMenuApp {
@@ -11,7 +15,7 @@ public class BuildingMenuApp {
         this.scanner = scanner;
     }
 
-    public void run() {
+    public void run() throws ApartmentNotFoundException {
         Building building = buildingReader.read();
 
         int opt;
@@ -30,39 +34,17 @@ public class BuildingMenuApp {
         } while (opt != 5);
     }
 
-    private void showApartmentOwners(Building building) {
-        int floor = askFloor();
-        String door = askDoor();
-
-        var owners = building.getApartmentOwners(floor, door);
-        if (owners != null) {
-            for (var owner : owners) {
-                owner.showInfo();
-                System.out.println();
-            }
-        } else {
-            System.out.println("No existe el apartamento");
-        }
+    private void showApartmentOwners(Building building) throws ApartmentNotFoundException {
+        building.getApartmentOwners(askFloor(), askDoor()).forEach(Owner::showInfo);
     }
 
-    private void showApartmentInfo(Building building) {
-        int floor = askFloor();
-
-        String door = askDoor();
-
-        var apartment = building.findApartment(floor, door);
-        if (apartment != null) {
-            apartment.showInfo();
-            System.out.println();
-        } else {
-            System.out.println("No existe el apartamento");
-        }
+    private void showApartmentInfo(Building building) throws ApartmentNotFoundException {
+        building.findApartment(askFloor(), askDoor()).showInfo();
     }
 
     private String askDoor() {
         System.out.println("Puerta:");
-        String door = scanner.nextLine();
-        return door;
+        return scanner.nextLine();
     }
 
     private void showFloorApartments(Building building) {

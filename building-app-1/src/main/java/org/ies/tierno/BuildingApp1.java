@@ -1,5 +1,7 @@
 package org.ies.tierno;
 
+import org.ies.tierno.model.Building;
+
 import java.util.Scanner;
 
 public class BuildingApp1 {
@@ -22,10 +24,10 @@ public class BuildingApp1 {
         String door = scanner.nextLine();
 
         var apartment = building.findApartment(floor, door);
-        if (apartment == null) {
+        if (apartment.isEmpty()) {
             System.out.println("No se ha encontrado el apartamento");
         } else {
-            apartment.showInfo();
+            apartment.get().showInfo();
         }
 
         building.showFloorApartments(2);

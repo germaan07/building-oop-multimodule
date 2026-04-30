@@ -1,9 +1,11 @@
 package org.ies.tierno;
 
+import org.ies.tierno.exceptions.ApartmentNotFoundException;
+
 import java.util.Scanner;
 
 public class BuildingMenuAppMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ApartmentNotFoundException {
         var scanner = new Scanner(System.in);
         var ownerReader = new OwnerReader(scanner);
         var apartmentReader = new ApartmentReader(scanner, ownerReader);

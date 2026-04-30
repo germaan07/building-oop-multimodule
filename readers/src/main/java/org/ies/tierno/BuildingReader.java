@@ -2,6 +2,11 @@ package org.ies.tierno;
 
 
 
+import org.ies.tierno.model.Apartment;
+import org.ies.tierno.model.Building;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class BuildingReader {
@@ -26,10 +31,9 @@ public class BuildingReader {
         int numApartments = scanner.nextInt();
         scanner.nextLine();
 
-        Apartment[] apartments = new Apartment[numApartments];
-
-        for (int i = 0; i < apartments.length; i++) {
-            apartments[i] = apartmentReader.read();
+        List<Apartment> apartments = new ArrayList<>();
+        for (int i = 0; i < numApartments; i++) {
+            apartments.add(apartmentReader.read());
         }
 
         return new Building(
